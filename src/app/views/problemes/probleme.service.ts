@@ -16,5 +16,9 @@ export class ProblemeService {
     this.baseURL ="http://192.168.252.201:8000/api/list-problemeIndex";
     return this.httpClient.get<Probleme[]>(`${this.baseURL}`);
   }
+  getProblemeById(id : number): Observable<Probleme>{
+    // this.baseURL ="http://192.168.252.201:8000/api/list-problemeShow/{id}";
+    return this.httpClient.get<Probleme>('http://192.168.252.201:8000/api/list-problemeShow/'+id);
+  }
 
 }

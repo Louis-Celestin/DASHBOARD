@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 import { ProblemesRoutingModule } from './problemes-routing.module';
 import { ListeProblemesComponent } from './liste-problemes/liste-problemes.component';
 import { DataTablesModule } from 'angular-datatables';
+import { DetailProblemeComponent } from './detail-probleme/detail-probleme.component';
 
 
 @NgModule({
   declarations: [
-    ListeProblemesComponent
+    ListeProblemesComponent,
+    DetailProblemeComponent
   ],
   imports: [
     CommonModule,

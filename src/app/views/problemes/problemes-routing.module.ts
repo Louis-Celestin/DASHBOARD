@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListeProblemesComponent } from './liste-problemes/liste-problemes.component';
+import { DetailProblemeComponent } from './detail-probleme/detail-probleme.component';
 
 const routes: Routes = [
 
@@ -12,13 +13,20 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'liste-problemes'
+        redirectTo: 'liste-problemes',
       },
       {
         path: 'liste-problemes',
         component:ListeProblemesComponent,
         data: {
           title: 'Listes des problèmes'
+        }
+      },
+      {
+        path: 'detail-probleme/:id',
+        component:DetailProblemeComponent,
+        data: {
+          title: 'Detail du probleme'
         }
       },
 
