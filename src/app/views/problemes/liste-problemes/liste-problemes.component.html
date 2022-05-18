@@ -1,0 +1,43 @@
+<div class="card">
+  <h1 class="card-title mt-4 ml-4" style="
+    text-align: center;
+    color: #3748e7;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-family: Roboto;
+  ">
+      Liste des problemes
+  </h1>
+  <div class="card-body">
+      <table datatable [dtOptions]="dtOptions" class="table">
+          <thead>
+              <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Image</th>
+                  <th scope="col">Lieu</th>
+                  <th scope="col">Categorie</th>
+                  <th scope="col">Auteur</th>
+                  <th scope="col">Actions</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let probleme of problemes">
+                  <th scope="row">{{ probleme.id }}</th>
+                  <td>{{ probleme.image }}</td>
+                  <td>{{ probleme.localisation }}</td>
+                  <td>{{ probleme.IdTypeProbleme }}</td>
+                  <td>{{ probleme.IdUser }}</td>
+                  <td colspan="3" style="display: flex">
+                      &nbsp;
+                      <button class="btn btn-danger" >
+            <i class="fa-solid fa-trash"></i></button
+          >&nbsp;
+          <button class="btn btn-warning">
+            <i class="fa-solid fa-eye"></i>
+          </button>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>

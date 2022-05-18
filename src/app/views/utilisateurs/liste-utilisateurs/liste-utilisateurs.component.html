@@ -1,0 +1,74 @@
+<!-- <div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Ajouter un Agent de votre mairie</h5>
+        <p class="card-text">
+            With supporting text below as a natural lead-in to additional content.
+        </p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div> -->
+<!-- <button class="btn btn-primary" mat-raised-button color="accent" (click)="openDialog()">
+  Accent
+</button> -->
+<div class="card" style="margin-top: 20%">
+    <h1 class="card-title mt-4 ml-4" style="
+      text-align: center;
+      color: #3748e7;
+      font-weight: bold;
+      letter-spacing: 2px;
+      font-family: Roboto;
+    ">
+        Liste des utilisateurs
+    </h1>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prénom</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Sexe</th>
+                    <th scope="col">Commune</th>
+                    <th scope="col">Membre</th>
+                    <th scope="col">Lieu de naissance</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let list of userList">
+                    <th scope="row">{{ list.id }}</th>
+                    <td>{{ list.name }}</td>
+                    <td>{{ list.prenom }}</td>
+                    <td>{{ list.email }}</td>
+                    <td>{{ list.phone }}</td>
+                    <td>{{ list.sexe }}</td>
+                    <td>
+                        {{ list.commune.nom }}
+                    </td>
+                    <td>{{ list.type_utilisateur.profil }}</td>
+                    <td>{{ list.lieu_naissance }}</td>
+                    <td colspan="3" style="display: flex">
+                        &nbsp;
+                        <button class="btn btn-danger">
+              <i class="fa-solid fa-trash"></i></button
+            >&nbsp;
+            <span class="btn btn-info text-dark" (click)="deleteUser(list.id)"
+              ><i class="fa-solid fa-pen-to-square"></i></span
+            >&nbsp;
+
+            <!-- <span class="btn btn-warning text-dark">
+              <a href="#" (click)="modifUtilisateurs(list.id)"></a
+              ><i class="fa-solid fa-eye"></i
+            ></span> -->
+
+            <button class="btn btn-warning">
+              <i class="fa-solid fa-eye"></i>
+            </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

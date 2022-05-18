@@ -1,0 +1,47 @@
+<div class="card">
+  <h1 class="card-title mt-4 ml-4" style="
+    text-align: center;
+    color: #3748e7;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-family: Roboto;
+  ">
+      Ajouter un sondage
+  </h1>
+  <div class="card-body">
+    <form [formGroup]="optionForm">
+      <div class="form-group">
+        <label>Description</label>
+        <input type="text" class="form-control" id="description" [(ngModel)]="sondage.description"
+          name="description">
+        <input type="text" class="form-control" id="IdUser" [(ngModel)]="sondage.IdUser" value="2" name="IdUser">
+      </div>
+      <br />
+      <table class="table table-bordered" formArrayName="options">
+        <tr>
+          <th colspan="2">Ajoutez une option</th>
+
+          <th width="150px">
+            <button type="button" (click)="addOption()" class="btn btn-primary">
+              Ajouter
+            </button>
+          </th>
+        </tr>
+        <tr
+          *ngFor="let option of options().controls; let i = index"
+          [formGroupName]="i"
+        >
+          <td>
+            Option
+            <input type="text" formControlName="libelle" class="form-control" />
+          </td>
+          <td>
+            <button (click)="removeOption(i)" class="btn btn-danger">
+              Supprimer
+            </button>
+          </td>
+        </tr>
+      </table>
+      <button (click)="onSubmit()" class="btn btn-success">Creer</button>
+    </form>
+    </div>
