@@ -65,13 +65,14 @@ export class AjoutSondageComponent implements OnInit {
   }
 
   onSubmit(){
-    if (this.saveSondage() && this.saveOption()){
+  this.saveSondage();
+  this.saveOption();
       this.goToSondageListe();
+      console.log(this.optionForm.value);
+    }
+    ngOnInit(): void {
+      this.optionForm;
     }
 
-
-  }
-  ngOnInit(): void {
   }
 
-}

@@ -6,6 +6,7 @@ export class Sondage {
     updated_at!:  Date;
     deleted_at!:  null;
     user!:        User;
+    options!: Option[];
 }
 export class User {
     id!:   number;

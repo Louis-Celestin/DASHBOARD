@@ -21,7 +21,6 @@ export class ListeProblemesComponent implements OnInit {
       pagingType: 'full_numbers'
     };
   }
-
   private getProblemes(){
     this.ProblemeService.getProblemes().subscribe(data=>{
       this.problemes = data;

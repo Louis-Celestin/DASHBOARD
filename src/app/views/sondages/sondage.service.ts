@@ -23,7 +23,7 @@ export class SondageService {
   }
 
   createOption(option: Option): Observable<Object>{
-    this.baseURL ="http://192.168.252.201:8000/api/sondageIndex";
+    this.baseURL ="http://192.168.252.201:8000/api/optionStore";
       return this.httpClient.post(`${this.baseURL}`, option);
   }
 

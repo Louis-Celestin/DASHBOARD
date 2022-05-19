@@ -16,11 +16,14 @@ probleme! : Probleme;
   constructor(private route : ActivatedRoute,private ProblemeService : ProblemeService) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['id'];
 
+    this.id = this.route.snapshot.params['id'];
     this.probleme = new Probleme();
     this.ProblemeService.getProblemeById(this.id).subscribe(data =>{
         this.probleme = data;
+        console.log(this.probleme);
+
     });
+
   }
 }
