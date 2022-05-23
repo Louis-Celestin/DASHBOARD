@@ -81,14 +81,6 @@ export const navItems: INavData[] = [
         name: 'Lister les sondages',
         url: '/sondages/liste-sondages',
       },
-      {
-        name: 'Mes sondages',
-        url: '/sondages/mes-sondages',
-      },
-      {
-        name: 'Mes sondages',
-        url: '/sondages/maj-sondage',
-      },
     ],
   },
   {
