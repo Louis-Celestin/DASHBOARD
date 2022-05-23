@@ -6,10 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mes-sondages.component.scss']
 })
 export class MesSondagesComponent implements OnInit {
-
+  
   constructor() { }
-
   ngOnInit(): void {
+
   }
 
 }

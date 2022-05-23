@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Sondage, Option } from '../sondage.model';
 import { SondageService } from '../sondage.service';
-import{ FormGroup, FormControl, FormArray, FormBuilder } from '@angular/forms';
+import{ FormGroup, FormControl, FormArray, FormBuilder, Validators } from '@angular/forms';
 import { group } from '@angular/animations';
 
 @Component({
@@ -12,67 +12,65 @@ import { group } from '@angular/animations';
 })
 export class AjoutSondageComponent implements OnInit {
 
-  optionForm!: FormGroup;
+  public sondageForm!: FormGroup
   sondage: Sondage = new Sondage();
-  option: Option = new Option();
+  constructor(private SondageService : SondageService ,private fb:FormBuilder, private router :Router) {
 
-  constructor(private sondageService : SondageService, private router : Router, private fb:FormBuilder) {
-
-    this.optionForm=this.fb.group({
-      options : this.fb.array([])
-    });
    }
 
-  // Debut FormArray
-
-    options():FormArray {
-      return this.optionForm.get("options") as FormArray
-    }
-    newOption(): FormGroup {
-      return this.fb.group({
-        libelle:''
-      })
-      }
-      addOption(){
-        this.options().push(this.newOption());
-      }
-      removeOption(i: number){
-        this.options().removeAt(i);
-      }
-
-      saveOption(){
-          this.sondageService.createOption(this.option).subscribe(data => {
-            console.log(data);
-        this.goToSondageListe();
-          return true;
-        },error=>console.log(error));
-        return false;
-      }
-
-  // Fin FormArray
-
-      saveSondage(){
-        this.sondageService.createSondage(this.sondage).subscribe(data=>{
-          console.log(data);
-        this.goToSondageListe();
-          return true;
-        },error=>console.log(error));
-        return false;
+   ngOnInit(){
+    this.sondageForm=this.fb.group({
+      description : ['', Validators.required],
+      // 2eme Etape : Declrarer la propoiété comme un tableau de données
+      options : this.fb.array([])
+      // options
+    })
   }
 
   goToSondageListe(){
-    this.router.navigateByUrl('/sondages/liste-sondages');
+    this.sondageForm.reset()
+    this.router.navigate(['/sondages/liste-sondages']);
   }
 
-  onSubmit(){
-  this.saveSondage();
-  this.saveOption();
-      this.goToSondageListe();
-      console.log(this.optionForm.value);
-    }
-    ngOnInit(): void {
-      this.optionForm;
-    }
-
+  // 1ere Etape : Avoir tous les elements du formulaire
+  public get options(): FormArray{
+    return this.sondageForm.get('options') as FormArray
   }
+
+  // 3eme Etape : Creer la fonction qui permet de generer le template
+  public addOption(){
+    if(this.options.length === 3){
+      alert("Vous n\'avez droit qu\'à trois options de sondage")
+    }else{
+      this.options.push(new FormControl());
+    }
+  }
+
+  public deleteOption(index:number){
+    this.options.removeAt(index);
+  }
+  saveSondage(){
+    if(this.sondageForm.valid){
+      this.sondage = this.sondageForm.value
+        this.SondageService.createSondage(this.sondage).subscribe({
+          next: ()=> this.goToSondageListe()
+        })
+    }
+        
+        
+      }
+      
+  }
+
+  
+
+
+
+
+
+  
+
+function i(i: any) {
+  throw new Error('Function not implemented.');
+}
 

@@ -1,4 +1,7 @@
 <div class="card">
+    <div class="card-header text-white bg-info">
+        LISTE DES SONDAGES
+    </div>
   <h1 class="card-title mt-4 ml-4" style="
     text-align: center;
     color: #3748e7;
@@ -22,7 +25,7 @@
               <tr *ngFor="let sondage of sondages">
                   <th scope="row">{{ sondage.id }}</th>
                   <td>{{ sondage.description }}</td>
-                  <td>{{ sondage.user.name }}</td>
+                  <td>{{ sondage }}</td>
                   <td colspan="3" style="display: flex">
                       &nbsp;
                       <button class="btn btn-danger" (click)="deleteSondage(sondage.id)">

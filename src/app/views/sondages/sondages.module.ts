@@ -13,12 +13,14 @@ import { DataTablesModule } from 'angular-datatables';
 
 
 
+
 @NgModule({
   declarations: [
     ListeSondagesComponent,
     MesSondagesComponent,
     DetailSondageComponent,
-    AjoutSondageComponent
+    AjoutSondageComponent,
+
 
   ],
   imports: [

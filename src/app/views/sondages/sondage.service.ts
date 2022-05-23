@@ -13,12 +13,12 @@ export class SondageService {
   constructor(private httpClient: HttpClient) { }
 
   getSondages(): Observable<Sondage[]>{
-    this.baseURL ="http://192.168.252.201:8000/api/sondageIndex";
+    this.baseURL ="http://localhost:3000/sondage";
     return this.httpClient.get<Sondage[]>(`${this.baseURL}`);
   }
 
   createSondage(sondage: Sondage): Observable<Object>{
-    this.baseURL = "http://192.168.252.201:8000/api/sondageStore";
+    this.baseURL = "http://localhost:3000/sondage";
     return this.httpClient.post(`${this.baseURL}`, sondage);
   }
 
