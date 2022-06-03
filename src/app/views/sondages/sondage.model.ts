@@ -1,7 +1,8 @@
 export class Sondage {
     id!:          number;
     description!: string;
-    options?: String[];
+    IdUser!: number
+    user!: User
 }
 export class User {
     id!:   number;
@@ -10,5 +11,10 @@ export class User {
 export class Option {
   id!:        number;
   libelle!:   string;
+  point!:     number;
   IdSondage!: number;
 }
+
+
+
+
